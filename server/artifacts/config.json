@@ -1,0 +1,15 @@
+{
+    "params":
+    {
+        "local_server":"True",
+        "local_uri":"mysql://root:@localhost/medi-care",
+        "prod_uri":"mysql://root:@localhost/medi-care",
+        "fb_url":"https://www.facebook.com/sunil.balas.98",
+        "tw_url":"https://twitter.com/sunil_balas",
+        "in_url":"https://www.instagram.com/s_b_a_l_a_s/",
+        "gh_url":"https://github.com/SunilBalas",
+        "title":"Medi-Care",
+        "gmail-user": "sunilbalas2306@gmail.com",
+        "gmail-password": "sbalas.2000"
+    }
+}

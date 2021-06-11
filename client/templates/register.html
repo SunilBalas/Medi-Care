@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+	<script src="https://kit.fontawesome.com/a0bc166eb0.js" crossorigin="anonymous"></script>
+	<title>Medi-Care</title>
+
+</head>
+
+<body>
+	<div class="container">
+		<div class="header">
+			<h2>Create Account</h2>
+		</div>
+		<form action="/register" method="post" id="form" class="form" onsubmit="return validate()">
+			<div class="form-control">
+				<label for="username">Username</label>
+				<input type="text" name="username" placeholder="Username" id="username" autocomplete="off"/>
+				<i class="fas fa-check-circle"></i>
+				<i class="fas fa-exclamation-circle"></i>
+				<small class="message">Error message</small>
+			</div>
+			<div class="form-control">
+				<label for="email">Email</label>
+				<input type="email" name="email" placeholder="Email Address" id="email" autocomplete="off"/>
+				<i class="fas fa-check-circle"></i>
+				<i class="fas fa-exclamation-circle"></i>
+				<small class="message">Error message</small>
+			</div>
+			<div class="form-control">
+				<label for="phone">Phone</label>
+				<input type="number" name="phone" placeholder="Phone Number" id="phone" autocomplete="off"/>
+				<i class="fas fa-check-circle"></i>
+				<i class="fas fa-exclamation-circle"></i>
+				<small class="message">Error message</small>
+			</div>
+			<div class="form-control">
+				<label for="password">Password</label>
+				<input type="password" name="password" placeholder="Password" id="password" autocomplete="off"/>
+				<i class="fas fa-check-circle"></i>
+				<i class="fas fa-exclamation-circle"></i>
+				<small class="message">Error message</small>
+			</div>
+			<button>Sign Up</button>
+			<p>Have an account? <a href="/login">Login here</a> </p>
+		</form>
+	</div>
+
+	<script>
+		function validate() {
+			const Username = document.getElementById('username');
+			const Email = document.getElementById('email');
+			const Phone = document.getElementById('phone');
+			const Password = document.getElementById('password');
+			const Message = document.getElementsByClassName('message');
+			const Icon = document.querySelector('i');
+			const Success = document.getElementsByClassName('fa-check-circle');
+			const Error = document.getElementsByClassName('fa-exclamation-circle');
+
+			let username = 0;
+			let email = 0;
+			let phone = 0;
+			let password = 0;
+
+			// username validation
+			if (Username.value == "") {
+				Username.style.borderColor = 'red';
+				Message[0].style.visibility = 'visible';
+				Message[0].style.color = 'red';
+				Message[0].innerText = "Username cannot be blank";
+				Error[0].style.visibility = 'visible';
+				Error[0].style.color = 'red';
+				username = 0;
+
+			} else if (Username.value.length < 6 && Username.value.length > 0) {
+				Username.style.borderColor = 'red';
+				Message[0].style.visibility = 'visible';
+				Message[0].style.color = 'red';
+				Message[0].innerText = "Username have atleast 6 character";
+				Error[0].style.visibility = 'visible';
+				Error[0].style.color = 'red';
+				username = 0;
+
+			} else if (Username.value.length > 6 && (isNaN(parseFloat(Username.value)))) {
+				Username.style.borderColor = 'green';
+				Message[0].style.visibility = 'hidden';
+				Error[0].style.visibility = 'hidden';
+				Success[0].style.visibility = 'visible';
+				Success[0].style.color = 'green';
+				username = 1;
+
+			} else {
+				Username.style.borderColor = 'red';
+				Message[0].style.visibility = 'visible';
+				Message[0].style.color = 'red';
+				Message[0].innerText = "Number is not allowed in the beggining";
+				Error[0].style.visibility = 'visible';
+				Error[0].style.color = 'red';
+				username = 0;
+
+			}
+
+			// email validation
+			if (Email.value == "") {
+				Email.style.borderColor = 'red';
+				Message[1].style.visibility = 'visible';
+				Message[1].style.color = 'red';
+				Message[1].innerText = "Email cannot be blank";
+				Error[1].style.visibility = 'visible';
+				Error[1].style.color = 'red';
+				email = 0;
+
+			} else if (Email.value.indexOf('@') < 3 || Email.value.lastIndexOf('.') >= Email.value.length - 2) {
+				Email.style.borderColor = 'red';
+				Message[1].style.visibility = 'visible';
+				Message[1].style.color = 'red';
+				Message[1].innerText = "Invalid email";
+				Error[1].style.visibility = 'visible';
+				Error[1].style.color = 'red';
+				email = 0;
+
+			} else {
+				Email.style.borderColor = 'green';
+				Error[1].style.visibility = 'hidden';
+				Message[1].style.visibility = 'hidden';
+				Success[1].style.visibility = 'visible';
+				Success[1].style.color = 'green';
+				email = 1;
+			}
+
+			// phone validation
+			var phone_pattern = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+			if (Phone.value == "") {
+				Phone.style.borderColor = 'red';
+				Message[2].style.visibility = 'visible';
+				Message[2].style.color = 'red';
+				Message[2].innerText = "Phone Number cannot be blank";
+				Error[2].style.visibility = 'visible';
+				Error[2].style.color = 'red';
+				phone = 0;
+
+			} else if (Phone.value.length < 10 || Phone.value.length > 10) {
+				Phone.style.borderColor = 'red';
+				Message[2].style.visibility = 'visible';
+				Message[2].style.color = 'red';
+				Message[2].innerText = "Phone must be minimum 10 character";
+				Error[2].style.visibility = 'visible';
+				Error[2].style.color = 'red';
+				phone = 0;
+
+			} else if (!(Phone.value.match(phone_pattern))) {
+				Phone.style.borderColor = 'red';
+				Message[2].style.visibility = 'visible';
+				Message[2].style.color = 'red';
+				Message[2].innerText = "Invalid Phone Number";
+				Error[2].style.visibility = 'visible';
+				Error[2].style.color = 'red';
+				phone = 0;
+
+			} else {
+				Phone.style.borderColor = 'green';
+				Error[2].style.visibility = 'hidden';
+				Message[2].style.visibility = 'hidden';
+				Success[2].style.visibility = 'visible';
+				Success[2].style.color = 'green';
+				phone = 1;
+			}
+			
+			// password validation
+			var password_pattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+			if (Password.value == "") {
+				Password.style.borderColor = 'red';
+				Message[3].style.visibility = 'visible';
+				Message[3].style.color = 'red';
+				Message[3].innerText = "Password cannot be blank";
+				Error[3].style.visibility = 'visible';
+				Error[3].style.color = 'red';
+				password = 0;
+				
+			} else if (Password.value.length < 9) {
+				Password.style.borderColor = 'red';
+				Message[3].style.visibility = 'visible';
+				Message[3].style.color = 'red';
+				Message[3].innerText = "Password must be minimum 8 character";
+				Error[3].style.visibility = 'visible';
+				Error[3].style.color = 'red';
+				password = 0;
+
+			} else if (!(Password.value.match(password_pattern))) {
+				Password.style.borderColor = 'red';
+				Message[3].style.visibility = 'visible';
+				Message[3].style.color = 'red';
+				Message[3].innerText = "Password have atleast a number";
+				Error[3].style.visibility = 'visible';
+				Error[3].style.color = 'red';
+				password = 0;
+
+			} else {
+				Password.style.borderColor = 'green';
+				Error[3].style.visibility = 'hidden';
+				Message[3].style.visibility = 'hidden';
+				Success[3].style.visibility = 'visible';
+				Success[3].style.color = 'green';
+				password = 1;
+			}
+
+			// return condition
+
+			if (username == 1 && email == 1 && phone == 1 && password == 1) {
+				return true;
+			} else
+				return false;
+		}
+	</script>
+</body>
+
+</html>

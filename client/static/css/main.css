@@ -1,0 +1,195 @@
+/* Navbar start */
+body{
+    font-family: 'Roboto', sans-serif;
+    background: #e7e7e7;
+}
+.nav-back{
+    background: rgba(17, 219, 207, 0.8);
+}
+.navbar-brand, .navbar-logo{
+    padding: 0 0 0 10px;
+    font-size: 25px;
+    color: #000000;
+    font-weight: bold;
+}
+.navbar-brand:hover, .navbar-logo:hover{
+    color: #ffffff;
+}
+.nav-link{
+    color: #000000;
+}
+.nav-link:hover{
+    color: #ffffff;
+}
+.navbar-toggler{
+    outline: none!important;
+}
+/* Navbar end */
+
+/* Banner start */
+#banner{
+    width: 100%;
+    height: 80vh;
+    background-size: cover;
+}
+#banner .container{
+    padding-top: 80px;
+}
+#banner::before{
+    content: "";
+    background: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80vh;
+}
+#banner h1{
+    margin: 0 0 10px 0;
+    font-size: 48px;
+    font-weight: bold;
+    line-height: 56px;
+    color: #ffffff;
+}
+#banner h2{
+    color: #ffffff;
+    margin-bottom: 40px;
+    font-size: 15px;
+    font-weight: light;
+    letter-spacing: 0.5px;
+}
+.main-btn{
+    font-weight: bold;
+    font-size: 16px;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 8px 28px;
+    border-radius: 50px;
+    transition: 0.3s;
+    margin: 10px;
+    border: 2px solid#ffffff;
+    color: #000000;
+}
+.main-btn:hover{
+    background: #03a59a;
+    border: 2px solid #03a59a;
+    text-decoration: none;
+    color: #ffffff;
+}
+/* Banner end */
+
+/* About start */
+.about-section{
+    margin: 5rem 0 0;
+}
+.about-heading{
+    text-transform: uppercase;
+}
+.about-heading-upper{
+    display: block;
+    font-size: 1rem;
+    font-weight: bold;
+}
+.bg-faded{
+    background:  rgba(17, 219, 207, 0.8);
+}
+.about-button .btn-color{
+    background: #03a59a;
+    z-index: 1;
+    color: #ffffff;
+    font-weight: bold;
+    transition: 0.3s;
+}
+.btn-color:hover{
+    background: #21292b;
+}
+.about{
+    position: relative;
+}
+@media screen and (min-width:992px){
+    .about .about-img{
+        width: 75%;
+        float: right;
+    }
+    .about .about-text{
+        left: 0;
+        width: 60%;
+        margin-top: 3rem;
+        position: absolute;
+    }
+    .about .about-text .about-button{
+        width: 100%;
+        left: 0;
+        position: absolute;
+        bottom: -2rem;
+    }
+}
+@media screen and (min-width:1200px){
+    .about .about-text{
+        width: 45%;
+    }
+}
+/* About end */
+
+/* Contacts start */
+
+.contact-box{
+    color: #000000;
+    text-align: center;
+    box-shadow:   rgba(17, 219, 207, 0.5);
+    padding: 20px 0 30px 0;
+    background:  #11dbcf;
+}
+.contact-box i{
+    font-size: 32px;
+    color: #ffffff;
+    border-radius: 50%;
+}
+.contact-box h3{
+    font-size: 20px;
+    color: #000000;
+    font-weight: bold;
+    margin: 10px 0;
+}
+.contact-box p{
+    padding: 0;
+    line-height: 24px;
+    font-size: 14px;
+    margin-bottom: 0;
+}
+.contact button{
+    background: #03a59a;
+    color: #ffffff;
+    font-weight: bold;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+.contact button:hover{
+    background: #21292b;
+    color: #ffffff;
+}
+/* Contacts end */
+
+/* Footer start */
+.footer{
+    text-align: center;
+    font-size: 15px;
+    background: rgba(60, 70, 75, 0.8);
+}
+.footer .btn-back{
+    background: #ffffff;
+    color: #00d9ff;
+}
+.footer .text{
+    color: #000000;
+}
+.btn-social i{
+    font-size: 22px;
+}
+.btn-social i:hover{
+    color: #ffffff;
+}
+/* Footer end */

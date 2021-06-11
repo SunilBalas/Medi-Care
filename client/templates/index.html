@@ -1,0 +1,96 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<!-- Banner section start -->
+<section id="banner" class="d-flex align-items-center"
+    style="background-image: url({{url_for('static', filename='img/banner.jpg')}})">
+    <div class="container text-center position-relative">
+        <h1>We are here for your care !!</h1>
+        <h2 class="text-uppercase">Medi-Care gives you to choice your health check-up without wasting your time and pay any fees.<br/>Self assessment tools have many symptoms of various disease that easily found any disease occur in your body or not.</h2>
+        {% if not session['logged_in'] %}
+        <a href="/login" class="main-btn">Login</a>
+        <a href="/register" class="main-btn">Register</a>
+        {% endif %}
+    </div>
+</section>
+<!-- Banner section end -->
+
+<!-- About section start -->
+<section class="about-section clearfix py-5" id="about">
+    <div class="container">
+        <div class="about">
+            <img src="{{url_for('static', filename='img/about.jpg')}}" class="about-img img-fluid mb-3 mb-lg-0 rounded"
+                alt="About image">
+            <div class="about-text left-0 text-center bg-faded p-5 rounded">
+                <h2 class="about-heading mb-4">
+                    <span class="about-heading-upper">Welcome</span>
+                </h2>
+                <p class="mb-3">Medi-Care is optimized for health check-ups without wasting any time and without paying any fees. You can do your investigation anywhere.
+                    All you have to do is give a test which will be a self-assessment test and you will have to give 4-5 symptoms and Medi-Care will predict a possible disease.
+                    You must agree to all of our Terms and Conditions, Privacy Policy and Cookies.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- About section end -->
+
+<!-- Contacts section start -->
+<section class="contact" id="contact">
+    <div class="container">
+        <div class="section-title text-center mt-5 pt-3">
+            <h2>Contact us</h2>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="contact-box">
+                            <i class="fas fa-map-signs"></i>
+                            <h3>Address</h3>
+                            <p>Government Engineering College, <br/> Near BPTI, Vidyanagar, <br/> Bhavnagar-364002</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="contact-box mt-4">
+                            <i class="fas fa-envelope"></i>
+                            <h3>Email</h3>
+                            <p>balassunil606@gmail.com<br>sumitkheni1998@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="contact-box mt-4">
+                            <i class="fas fa-phone"></i>
+                            <h3>Call us</h3>
+                            <p>+91 6355245023<br>+91 7016242238</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <form action="/contacts" method="post">
+                    <div class="form-row">
+                        <div class="col-md-6 form-group">
+                            <input type="text" name="name" class="form-control" id="name" placeholder="Name" autocomplete="off">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <input type="email" name="email" class="form-control" id="email" placeholder="Email" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="subject" class="form-control" placeholder="Subject" autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" rows="5" class="form-control" placeholder="Address" autocomplete="off"></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit">Send Message</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Contacts section end -->
+
+
+{% endblock %}
