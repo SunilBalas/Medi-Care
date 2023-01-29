@@ -18,7 +18,7 @@ Medi-Care is a Flask based website that allows individuals to perform self-asses
 ## Installation and Setup
 1. Clone the repository: 
 ```
-git clone https://github.com/[username]/Medi-Care.git
+git clone https://github.com/SunilBalas/Medi-Care.git
 ```
 2. Install the required packages: 
 ```
