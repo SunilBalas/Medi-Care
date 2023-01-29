@@ -30,7 +30,7 @@ pip install -r requirements.txt
 python run.py
 ```
 
-## Contributing
+## Contribution
 
 1. Fork the repository
 2. Create your feature branch: 
